@@ -1,0 +1,1 @@
+extern const int global = 1;
