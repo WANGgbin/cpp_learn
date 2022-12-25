@@ -1,22 +1,40 @@
-#include <iostream>
+#include<iostream>
+#include<vector>
+#include<string>
+#include<unordered_map>                                                                                                                                                                                                                                                                                                                                                                >
+class memb_func {
+public:
+    memb_func(){
+        std::cout << "memb_func::default_construc" << std::endl;
+    }
 
-using namespace std;
-
-class Parents{
-private:
-    Parents(){
-        cout << "Call parents\n";
+    int plus(int a, int b) const {
+        return a + b;
     }
 };
 
-class Children: public Parents{
+template<typename T>
+class test{};
+
+// 注意指向成员函数指针的类型声明 与 普通函数指针声明的区别
+// template<>
+// class test<int(memb_func::*)(int, int)const> {
+// public:
+//     void operator()() {
+//         std::cout << "member func spelization1" << std::endl;
+//     }
+// };
+
+template<typename member, typename _class>
+class test<member _class::*> {
 public:
-    Children(){
-        cout << "Call children\n";
+    void operator()() {
+        std::cout << "member func spelization2" << std::endl;
     }
 };
 
 int main() {
-    Children child;
+    int i = 'a';
+    std::to_string()
     return 0;
 }

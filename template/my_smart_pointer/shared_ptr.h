@@ -1,5 +1,11 @@
 #include <iostream>
 
+/**
+ * 问题:
+ * 1. enabled_shared_from_this 实现原理
+ * 2. make_shared() 实现原理
+ * 3. shared_ptr 内部的 count 是如何更新的
+ */
 namespace my_smart_pointer {
 typedef int atomic_t;
 

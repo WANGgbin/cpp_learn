@@ -30,12 +30,12 @@ using std::cout;
 //     }
 // };
 
-// class memb_func {
-// public:
-//     int plus(int a, int b) const {
-//         return a + b;
-//     }
-// };
+class memb_func {
+public:
+    int plus(int a, int b) const {
+        return a + b;
+    }
+};
 
 // int main() {
 //     std::function<int(int, int)> obj_func(plus);
@@ -57,6 +57,7 @@ using std::cout;
 // template<typename T>
 // void func(T par) {
 //     cout << typeid(T).name() << endl;  // output:PFvvE 这里 T 是函数指针类型
+//     par();
 // }
 
 
@@ -68,12 +69,17 @@ using std::cout;
 template<typename T>
 void func(T& par) {
     cout << typeid(T).name() << endl;  // output:Fvve 这里 T 是函数类型
+    par();
 }
 
-void print(){}
+void print(){
+    cout << "called print()" << endl;
+}
 
 int main() {
     func(print);
+    // cout << typeid(memb_func::plus).name() << endl;
+    // cout << typeid(&memb_func::plus).name() << endl;
     return 0;
 }
 
